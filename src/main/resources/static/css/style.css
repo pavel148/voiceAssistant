@@ -1,0 +1,74 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f0f2f5;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+header {
+    background: #4A90E2;
+    color: white;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+}
+main {
+    width: 90%;
+    max-width: 600px;
+    background: white;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    resize: vertical;
+}
+.buttons {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+}
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+#send {
+    background: #4A90E2;
+    color: white;
+}
+#start-record {
+    background: #7B7B7B;
+    color: white;
+}
+#audio-play {
+    background: #4A90E2;
+    color: white;
+    margin-top: 10px;
+}
+.response {
+    margin-top: 20px;
+    padding: 10px;
+    background: #e9ecef;
+    border-radius: 4px;
+    min-height: 50px;
+}
+.gif-container {
+    margin-top: 20px;
+    text-align: center;
+}
+.gif-container img {
+    max-width: 100px;
+    margin: 0 10px;
+}

@@ -21,33 +21,33 @@ public class ChatCommandLineRunner implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        List<ChatMessage> history = List.of(
-                new ChatMessage("system", "You are a helpful assistant."),
-                new ChatMessage("user", "Привет, как дела?")
-        );
-
-        Mono<ChatCompletionResponse> responseMono = chatGptService.chat(history)
-                .doOnError(RateLimitException.class, e ->
-                        System.err.println("↪ Rate limit hit: " + e.getMessage()))
-                .doOnError(e ->
-                        System.err.println("Error while calling ChatGPT: " + e.getMessage()))
-                // При любых ошибках возвращаем пустой ответ
-                .onErrorResume(e -> Mono.just(new ChatCompletionResponse(
-                        "n/a", "error", System.currentTimeMillis(), List.of()
-                )));
-
-        ChatCompletionResponse response = responseMono.block();
-
-        System.out.println("=== ChatGPT Request ===");
-        history.forEach(msg ->
-                System.out.printf("[%s] %s%n", msg.role(), msg.content())
-        );
-
-        System.out.println("\n=== ChatGPT Response ===");
-        if (response != null && !response.choices().isEmpty()) {
-            System.out.println(response.choices().get(0).message().content());
-        } else {
-            System.out.println("No response or an error occurred.");
-        }
+//        List<ChatMessage> history = List.of(
+//                new ChatMessage("system", "You are a helpful assistant."),
+//                new ChatMessage("user", "можешь подсказать сколько будет 2 + 2?")
+//        );
+//
+//        Mono<ChatCompletionResponse> responseMono = chatGptService.chat(history)
+//                .doOnError(RateLimitException.class, e ->
+//                        System.err.println("↪ Rate limit hit: " + e.getMessage()))
+//                .doOnError(e ->
+//                        System.err.println("Error while calling ChatGPT: " + e.getMessage()))
+//                // При любых ошибках возвращаем пустой ответ
+//                .onErrorResume(e -> Mono.just(new ChatCompletionResponse(
+//                        "n/a", "error", System.currentTimeMillis(), List.of()
+//                )));
+//
+//        ChatCompletionResponse response = responseMono.block();
+//
+//        System.out.println("=== ChatGPT Request ===");
+//        history.forEach(msg ->
+//                System.out.printf("[%s] %s%n", msg.role(), msg.content())
+//        );
+//
+//        System.out.println("\n=== ChatGPT Response ===");
+//        if (response != null && !response.choices().isEmpty()) {
+//            System.out.println(response.choices().get(0).message().content());
+//        } else {
+//            System.out.println("No response or an error occurred.");
+//        }
     }
 }
