@@ -8,11 +8,11 @@
 </head>
 <body>
 <header>
-    <h1>Голосовой асистент</h1>
+    <h1>Голосовой ассистент</h1>
 </header>
 <main>
     <form th:action="@{/chat}" method="post">
-        <textarea id="userInput" name="userMessage" placeholder="Type or speak your message..." th:text="${userMessage}"></textarea>
+        <textarea id="userInput" name="userMessage" placeholder="Type or speak your message..."></textarea>
         <div class="buttons">
             <button type="submit" id="send">Отправить</button>
             <button type="button" id="start-record">🎤 Запись</button>
@@ -20,8 +20,9 @@
     </form>
     <div class="response">
         <h2>Ответ:</h2>
-        <p id="botReply" th:text="${botReply}"></p>
+        <p id="botReply"></p>
         <button type="button" id="audio-play">🔊 Озвучить ответ</button>
+        <button type="button" id="stop-speech">🔇 Замолчать</button>
     </div>
     <div class="gif-container">
         <img src="https://camo.githubusercontent.com/3cb27b87e580240549fd27769142b68286334aded6c371c23e67b4b916f18a8f/68747470733a2f2f63646e2e6472696262626c652e636f6d2f75736572732f3639303239312f73637265656e73686f74732f333530373735342f756e7469746c65642d312e676966" alt="Omni GIF" />
